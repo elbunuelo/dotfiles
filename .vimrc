@@ -80,3 +80,7 @@ set smartcase
 set nobackup
 set nowritebackup
 set noswapfile
+
+"Ctrlp settings
+let g:ctrlp_max_height = 30
+
