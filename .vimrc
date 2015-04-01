@@ -24,6 +24,10 @@ map <c-h> <c-w>h
 "Sorting
 vnoremap <Leader>s :sort<CR>
 
+"Indenting and unindenting
+vnoremap < <gv 
+vnoremap > >gv
+
 "Enable powerline
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
