@@ -17,7 +17,9 @@ map <Leader>w <esc>:tabclose<CR>
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
-"Pane Switch
+"Pane handling
+map <Leader>v <esc>:vspilt<CR>
+map <Leader>b <esc>:split<CR>
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
