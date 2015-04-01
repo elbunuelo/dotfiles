@@ -11,7 +11,9 @@ noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
 
-"Tab Switch
+"Tab handling
+map <Leader>t <esc>:tabnew<CR>
+map <Leader>w <esc>:tabclose<CR>
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
