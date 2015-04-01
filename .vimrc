@@ -52,7 +52,7 @@ filetype off
 syntax on
 filetype plugin indent on
 
-" Line numbers and length
+"Line numbers and length
 set number
 set tw=79
 set nowrap
@@ -60,3 +60,12 @@ set fo-=t
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
+"History management
+set history=700
+set undolevels=700
+
+"Using spaces for indentation
+set tabstop=4
+set softtabstop=4
+set shiftround
+set expandtab
