@@ -91,6 +91,9 @@ map <Leader>a <esc>:Tab /=<CR>
 "Rockets align
 map <Leader>A <esc>:Tab /=><CR>
 
+"Break lines with K
+nnoremap K i<CR><esc>
+
 "Ctrlp settings
 let g:ctrlp_max_height = 30
 let g:ctrlp_show_hidden = 1
