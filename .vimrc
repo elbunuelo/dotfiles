@@ -69,3 +69,14 @@ set tabstop=4
 set softtabstop=4
 set shiftround
 set expandtab
+
+"Making search a little smarter
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+"Eliminate auxiliary files
+set nobackup
+set nowritebackup
+set noswapfile
