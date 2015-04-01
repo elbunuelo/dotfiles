@@ -28,6 +28,14 @@ vnoremap <Leader>s :sort<CR>
 vnoremap < <gv 
 vnoremap > >gv
 
+"Highlight Whitespace
+"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"au InsertLeave * match ExtraWhitespace /\s\+$/
+
+"Color scheme
+set t_Co=256
+color wombat256mod
+
 "Enable powerline
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
@@ -39,5 +47,16 @@ set laststatus=2
 "Run pathogen
 execute pathogen#infect()
 
+"Enable syntax highlighting
+filetype off
 syntax on
 filetype plugin indent on
+
+" Line numbers and length
+set number
+set tw=79
+set nowrap
+set fo-=t
+set colorcolumn=80
+highlight ColorColumn ctermbg=233
+
