@@ -85,6 +85,12 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+"Equals align
+map <Leader>a <esc>:Tab /=<CR>
+
+"Rockets align
+map <Leader>A <esc>:Tab /=><CR>
+
 "Ctrlp settings
 let g:ctrlp_max_height = 30
 let g:ctrlp_show_hidden = 1
