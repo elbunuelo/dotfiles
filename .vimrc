@@ -6,6 +6,11 @@ autocmd! bufwritepost .vimrc source %
 "Rebind <Leader>
 let mapleader = ","
 
+"Remove highlighting
+noremap <C-n> :nohl<CR>
+vnoremap <C-n> :nohl<CR>
+inoremap <C-n> :nohl<CR>
+
 "Enable powerline
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
