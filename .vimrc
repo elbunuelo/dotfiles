@@ -21,6 +21,9 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+"Sorting
+vnoremap <Leader>s :sort<CR>
+
 "Enable powerline
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
