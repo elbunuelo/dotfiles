@@ -25,12 +25,12 @@ map <c-h> <c-w>h
 vnoremap <Leader>s :sort<CR>
 
 "Indenting and unindenting
-vnoremap < <gv 
+vnoremap < <gv
 vnoremap > >gv
 
 "Highlight Whitespace
-"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-"au InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
 
 "Color scheme
 set t_Co=256
@@ -83,4 +83,4 @@ set noswapfile
 
 "Ctrlp settings
 let g:ctrlp_max_height = 30
-
+let g:ctrlp_show_hidden = 1
