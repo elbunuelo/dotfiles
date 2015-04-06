@@ -16,3 +16,9 @@ check [the syntastic repo](https://github.com/scrooloose/syntastic)
 
 The .taskrc file contains the configuration for taskwarrior, this must be
 installed for it to work.
+
+##Tmuxinator
+
+Tmuxinator is a tmux automator, as of right now it only has one environment
+named work, which creates two windows, one with vim and taskwarrior and one
+with livereload
