@@ -11,3 +11,8 @@ Please note that my .vimrc and .tmux.conf assume that [powerline](https://github
 Make sure that you have the tools used by syntastic for the language you are
 working in. For more information
 check [the syntastic repo](https://github.com/scrooloose/syntastic)
+
+##TaskWarrior
+
+The .taskrc file contains the configuration for taskwarrior, this must be
+installed for it to work.
