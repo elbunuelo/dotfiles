@@ -23,7 +23,7 @@ root: /var/www/ciudadenlinea.com
 
 windows:
   - editor:
-      layout: 96fe,238x65,0,0{205x65,0,0,16,32x65,206,0,18}
+      layout: 4589,211x53,0,0{181x53,0,0,1,29x53,182,0,3}
       panes:
         - vim .
         - ~/snippets/bash/task.sh
