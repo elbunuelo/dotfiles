@@ -7,3 +7,18 @@
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule ".vim/bundle/php_getset.vim"]
+	path = .vim/bundle/php_getset.vim
+	url = https://github.com/vim-scripts/php_getset.vim.git
+[submodule ".vim/bundle/vdebug"]
+	path = .vim/bundle/vdebug
+	url = https://github.com/joonty/vdebug.git
+[submodule ".vim/bundle/PDV--phpDocumentor-for-Vim"]
+	path = .vim/bundle/PDV--phpDocumentor-for-Vim
+	url = git@github.com:elbunuelo/PDV--phpDocumentor-for-Vim.git
+[submodule ".vim/bundle/PHP-Indenting-for-VIm"]
+	path = .vim/bundle/PHP-Indenting-for-VIm
+	url = https://github.com/2072/PHP-Indenting-for-VIm.git
