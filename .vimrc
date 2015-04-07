@@ -114,3 +114,4 @@ let g:syntastic_quiet_messages = {'level': 'warnings'}
 au BufRead,BufNewFile *.php inoremap <buffer> <Leader>c :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <Leader>c :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <Leader>c :call PhpDocRange()<CR>
+let g:pdv_cfg_php4always = 1
