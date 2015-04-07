@@ -74,6 +74,7 @@ set undolevels=700
 "Using spaces for indentation
 set tabstop=4
 set softtabstop=4
+set shiftwidth=4
 set shiftround
 set expandtab
 
@@ -108,3 +109,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phplint']
 let g:syntastic_quiet_messages = {'level': 'warnings'}
+
+"Php documentor configuration
+au BufRead,BufNewFile *.php inoremap <buffer> <Leader>c :call PhpDoc()<CR>
+au BufRead,BufNewFile *.php nnoremap <buffer> <Leader>c :call PhpDoc()<CR>
+au BufRead,BufNewFile *.php vnoremap <buffer> <Leader>c :call PhpDocRange()<CR>
