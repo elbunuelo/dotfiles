@@ -18,7 +18,7 @@ map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
 "Pane handling
-map <Leader>v <esc>:vspilt<CR>
+map <Leader>v <esc>:vsplit<CR>
 map <Leader>b <esc>:split<CR>
 map <c-j> <c-w>j
 map <c-k> <c-w>k
