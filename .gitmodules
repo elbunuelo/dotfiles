@@ -25,3 +25,9 @@
 [submodule ".vim/bundle/vim-autoclose"]
 	path = .vim/bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose
+[submodule ".vim/bundle/vim-webdevicons"]
+	path = .vim/bundle/vim-webdevicons
+	url = https://github.com/ryanoasis/vim-webdevicons.git
+[submodule ".vim/bundle/indentLine"]
+	path = .vim/bundle/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
