@@ -36,9 +36,6 @@ vnoremap > >gv
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
-"Eliminate trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
-
 "Color scheme
 set t_Co=256
 color wombat256mod

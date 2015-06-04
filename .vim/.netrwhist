@@ -1,8 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/var/www/ciudadenlinea.com/application'
-let g:netrw_dirhist_2='/var/www/ciudadenlinea.com/application/controllers'
-let g:netrw_dirhist_3='/home/elbunuelo/dotfiles/.git/modules'
-let g:netrw_dirhist_4='/home/elbunuelo/dotfiles/.git/modules/.vim'
-let g:netrw_dirhist_5='/home/elbunuelo/dotfiles/.git/modules/.vim/bundle'
-let g:netrw_dirhist_6='/home/elbunuelo/dotfiles/.git/modules/.vim/bundle/PDV--phpDocumentor-for-Vim'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/elbunuelo/projects/chargesForms'
+let g:netrw_dirhist_2='/home/elbunuelo/projects/chargesForms/app'
+let g:netrw_dirhist_3='/home/elbunuelo/projects/chargesForms'
+let g:netrw_dirhist_4='/home/elbunuelo/projects/chargesForms/app'
+let g:netrw_dirhist_5='/home/elbunuelo/projects/chargesForms'
