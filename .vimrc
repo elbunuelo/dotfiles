@@ -1,4 +1,6 @@
-set encoding=utf-8
+
+"Plugins configuration
+source ~/.vim/plugins.vim
 
 "Reload .vimrc when it's written to
 autocmd! bufwritepost .vimrc source %
@@ -18,12 +20,24 @@ map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
 "Pane handling
-map <Leader>v <esc>:vsplit<CR>
-map <Leader>b <esc>:split<CR>
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+map <silent> <C-h> :call WinMove('h')<cr>
+map <silent> <C-j> :call WinMove('j')<cr>
+map <silent> <C-k> :call WinMove('k')<cr>
+map <silent> <C-l> :call WinMove('l')<cr>
+
+" Move to the window in the direction specified or open a new one
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfunction
 
 "Sorting
 vnoremap <Leader>s :sort<CR>
@@ -47,9 +61,6 @@ python del powerline_setup
 
 "Para cuando el statusLine solo aparece en split
 set laststatus=2
-
-"Run pathogen
-execute pathogen#infect()
 
 "Enable syntax highlighting
 filetype off
@@ -113,5 +124,19 @@ au BufRead,BufNewFile *.php nnoremap <buffer> <Leader>c :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <Leader>c :call PhpDocRange()<CR>
 let g:pdv_cfg_php4always = 1
 
+"Nerdtree
+map <Leader>n <esc>:NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1
+
 "Enable matchit for html matching with %
 runtime macros/matchit.vim
+
+"Syntastic configuration
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_error_symbol='✗'
+
+"Json Configuration
+"Don't hide quotes in json files
+let g:vim_json_syntax_conceal = 0
+

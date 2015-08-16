@@ -12,6 +12,14 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'tobyS/vmustache' |  Plug 'tobyS/pdv'
 Plug 'tobyS/vmustache' |  Plug 'tobyS/php-accessors.vim'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
 
+Plug 'wavded/vim-stylus', { 'for': ['stylus', 'markdown'] }
+Plug 'ap/vim-css-color', { 'for': 'css' }
+Plug 'elzr/vim-json', { 'for': 'css' }
+Plug 'gregsexton/MatchTag', { 'for': 'html' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'Valloric/ListToggle'
 call plug#end()
