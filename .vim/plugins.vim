@@ -22,4 +22,5 @@ Plug 'gregsexton/MatchTag', { 'for': 'html' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'Valloric/ListToggle'
+Plug 'tpope/vim-fugitive'
 call plug#end()
