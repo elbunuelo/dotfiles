@@ -140,3 +140,6 @@ let g:syntastic_error_symbol='✗'
 "Don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
 
+"Use w!! to save readonly files
+cmap w!! w !sudo tee > /dev/null %
+
