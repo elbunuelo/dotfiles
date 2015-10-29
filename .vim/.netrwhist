@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/home/elbunuelo/Projects/DollaMonitor'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/elbunuelo/projects/google-cloud-print'
+let g:netrw_dirhist_2='/var/www/Workflow'
+let g:netrw_dirhist_3='/var/www/ciudadenlinea.com/public/google-cloud-print'
+let g:netrw_dirhist_4='/var/www/ciudadenlinea.com'

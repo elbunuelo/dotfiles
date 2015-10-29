@@ -13,17 +13,12 @@ noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
 
-"Tab handling
-map <Leader>t <esc>:tabnew<CR>
-map <Leader>w <esc>:tabclose<CR>
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
-
 "Pane handling
 map <silent> <C-h> :call WinMove('h')<cr>
 map <silent> <C-j> :call WinMove('j')<cr>
 map <silent> <C-k> :call WinMove('k')<cr>
 map <silent> <C-l> :call WinMove('l')<cr>
+map <silent> <C-x> :q<cr>
 
 " Move to the window in the direction specified or open a new one
 function! WinMove(key)
@@ -54,10 +49,9 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 set t_Co=256
 color wombat256mod
 
-"Enable powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"Airline configuration
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'powerlineish'
 
 "Para cuando el statusLine solo aparece en split
 set laststatus=2
@@ -119,15 +113,33 @@ let g:syntastic_php_checkers = ['php', 'phpcs', 'phplint']
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 "Php documentor configuration
-au BufRead,BufNewFile *.php inoremap <buffer> <Leader>c :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php nnoremap <buffer> <Leader>c :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php vnoremap <buffer> <Leader>c :call PhpDocRange()<CR>
+au BufRead,BufNewFile *.php inoremap <buffer> <Leader>c :call pdv#DocumentCurrentLine()<CR>
 let g:pdv_cfg_php4always = 1
 
 "Nerdtree
 map <Leader>n <esc>:NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'.  a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('phtml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 "Enable matchit for html matching with %
 runtime macros/matchit.vim
@@ -135,11 +147,20 @@ runtime macros/matchit.vim
 "Syntastic configuration
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_error_symbol='✗'
+let g:syntastic_style_error_symbol='✗'
 
 "Json Configuration
 "Don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0
 
+
 "Use w!! to save readonly files
 cmap w!! w !sudo tee > /dev/null %
 
+"Phinx execution
+map <Leader>C <esc>:! ./vendor/bin/phinx create
+map <Leader>M <esc>:! ./vendor/bin/phinx migrate<CR>
+map <Leader>R <esc>:! ./vendor/bin/phinx rollback<CR>
+
+"thyme
+nmap <leader>T :!thyme -d<cr>

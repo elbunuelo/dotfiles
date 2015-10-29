@@ -29,3 +29,7 @@ powerline-daemon -q
 export PATH=/home/elbunuelo/bin/Sencha/Cmd/5.1.2.52:$PATH
 export EDITOR='vim'
 source ~/.bin/tmuxinator.bash
+
+
+PERL_MB_OPT="--install_base \"/home/elbunuelo/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/elbunuelo/perl5"; export PERL_MM_OPT;

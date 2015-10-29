@@ -1,7 +1,7 @@
-# ~/.tmuxinator/work.yml
+# ~/.tmuxinator/Prototype.yml
 
-name: work
-root: /var/www/ciudadenlinea.com
+name: Prototype
+root: ~/projects/domesticViolencePrototype
 
 # Optional tmux socket
 # socket_name: foo
@@ -26,4 +26,6 @@ windows:
       layout: 4589,211x53,0,0{181x53,0,0,1,29x53,182,0,3}
       panes:
         - vim .
-  - browsersync: browser-sync start --proxy "dev.seguridadenlinea.com" --files "public/**/*"
+        - ~/snippets/bash/task.sh
+  - livereload: rvm use ruby-1.9.3-p550 && bundle exec guard
+  - server: npm start
