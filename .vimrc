@@ -52,6 +52,7 @@ color wombat256mod
 "Airline configuration
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'powerlineish'
+let g:airline#extensions#tabline#enabled = 1  
 
 "Para cuando el statusLine solo aparece en split
 set laststatus=2
@@ -62,7 +63,7 @@ syntax on
 filetype plugin indent on
 
 "Line numbers and length
-set number
+set relativenumber
 set tw=79
 set nowrap
 set fo-=t
@@ -117,7 +118,7 @@ au BufRead,BufNewFile *.php inoremap <buffer> <Leader>c :call pdv#DocumentCurren
 let g:pdv_cfg_php4always = 1
 
 "Nerdtree
-map <Leader>n <esc>:NERDTreeToggle<CR>
+map <Leader>n <esc>:NERDTreeToggle <CR>
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
 " NERDTress File highlighting
@@ -145,6 +146,9 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 runtime macros/matchit.vim
 
 "Syntastic configuration
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_error_symbol='✗'
 let g:syntastic_style_error_symbol='✗'
@@ -163,4 +167,61 @@ map <Leader>M <esc>:! ./vendor/bin/phinx migrate<CR>
 map <Leader>R <esc>:! ./vendor/bin/phinx rollback<CR>
 
 "thyme
-nmap <leader>T :!thyme -d<cr>
+nmap <Leader>T :!thyme -d<cr>
+
+"ctrlp
+if executable('ag') 
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' 
+    let g:ctrlp_use_caching = 0
+    nnoremap <leader>f :Ag -i <C-R><C-W> * <CR>   
+    command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+endif
+
+
+"Vdebug
+let g:vdebug_options= {
+\    "port" : 9000,
+\    "server" : 'dev.seguridadenlinea.com',
+\    "timeout" : 20,
+\    "on_close" : 'detach',
+\    "break_on_open" : 1,
+\    "ide_key" : '',
+\    "path_maps" : {},
+\    "debug_window_level" : 0,
+\    "debug_file_level" : 0,
+\    "debug_file" : "",
+\    "watch_window_style" : 'expanded',
+\    "marker_default" : '⬦',
+\    "marker_closed_tree" : '▸',
+\    "marker_open_tree" : '▾'
+\}
+
+"tagbar
+nnoremap <leader>b :TagbarToggle<CR>     
+
+let g:tagbar_type_php  = {
+            \ 'ctagstype' : 'php',
+            \ 'kinds'     : [
+            \ 'i:interfaces',
+            \ 'c:classes',
+            \ 'd:constant definitions',
+            \ 'f:functions',
+            \ 'j:javascript functions:1'
+            \ ]
+            \ }
+
+"Merginal
+nnoremap <leader>m :MerginalToggle<CR>
+
+function! NumberToggle()
+    if(&relativenumber == 1)
+        set number
+        set norelativenumber
+    else
+        set relativenumber
+    endif
+endfunc
+
+nnoremap <leader>R :call NumberToggle()<CR>
