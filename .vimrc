@@ -114,8 +114,8 @@ let g:syntastic_php_checkers = ['php', 'phpcs', 'phplint']
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 "Php documentor configuration
-au BufRead,BufNewFile *.php inoremap <buffer> <Leader>c :call pdv#DocumentCurrentLine()<CR>
-let g:pdv_cfg_php4always = 1
+let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
+nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
 "Nerdtree
 map <Leader>n <esc>:NERDTreeToggle <CR>
@@ -224,4 +224,4 @@ function! NumberToggle()
     endif
 endfunc
 
-nnoremap <leader>R :call NumberToggle()<CR>
+nnoremap <leader>r :call NumberToggle()<CR>
