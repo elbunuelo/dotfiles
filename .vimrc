@@ -52,7 +52,7 @@ color wombat256mod
 "Airline configuration
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'powerlineish'
-let g:airline#extensions#tabline#enabled = 1  
+let g:airline#extensions#tabline#enabled = 1
 
 "Para cuando el statusLine solo aparece en split
 set laststatus=2
@@ -170,11 +170,11 @@ map <Leader>R <esc>:! ./vendor/bin/phinx rollback<CR>
 nmap <Leader>T :!thyme -d<cr>
 
 "ctrlp
-if executable('ag') 
+if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' 
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     let g:ctrlp_use_caching = 0
-    nnoremap <leader>f :Ag -i <C-R><C-W> * <CR>   
+    nnoremap <leader>f :Ag -i <C-R><C-W> * <CR>
     command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
     nnoremap \ :Ag<SPACE>
 endif
@@ -199,7 +199,7 @@ let g:vdebug_options= {
 \}
 
 "tagbar
-nnoremap <leader>b :TagbarToggle<CR>     
+nnoremap <leader>b :TagbarToggle<CR>
 
 let g:tagbar_type_php  = {
             \ 'ctagstype' : 'php',
