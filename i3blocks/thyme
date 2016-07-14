@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [ ! -f ~/.thyme-tmux ]
+then
+    exit
+fi
+
+time=$(cat ~/.thyme-tmux | grep -o -E "[0-9]{1,2}:[0-9]{2}")
+is_break=$(cat ~/.thyme-tmux | grep -E -o "\(.+\)")
+
+if [ "$is_break" ]
+then
+   color="#27b062"
+else
+    color="#FFFFFF"
+fi
+
+echo "<span foreground=\"$color\">$time</span>"

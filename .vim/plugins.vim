@@ -30,4 +30,8 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-capslock'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
+Plug 'Chiel92/vim-autoformat'
 call plug#end()

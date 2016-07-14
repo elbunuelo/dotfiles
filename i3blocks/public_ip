@@ -1,0 +1,5 @@
+#! /bin/sh
+
+ip=$(curl -s canihazip.com/s)
+
+echo $ip

@@ -1,0 +1,51 @@
+0.000000 (0.000000): Started
+0.000063 (0.000063): main:2385 
+0.000124 (0.000061): main:2396 
+0.000129 (0.000005): main:2400 
+0.004295 (0.004166): main:2422 Open Display
+0.004537 (0.000242): main:2429 Startup Notification
+0.004564 (0.000027): main:2432 Setup abe
+0.008570 (0.004006): main:2452 X11 Setup 
+0.009230 (0.000660): main:2455 Config sanity check
+0.009442 (0.000212): main:2472 Parse ABE
+0.009450 (0.000008): main:2500 Setup Threadpool
+0.012303 (0.002853): get_dmenu:69  Read stdin START
+0.012347 (0.000044): get_dmenu:104 Read stdin STOP
+0.012355 (0.000008): menu:1246 
+0.012358 (0.000003): menu:1274 Is ASCII start
+0.012401 (0.000043): menu:1307 Is ASCII stop
+0.012645 (0.000244): menu:1323 Grab keyboard
+0.042832 (0.030187): menu:1332 Startup notification
+0.043667 (0.000835): menu:1335 Get active monitor
+0.070266 (0.026599): menu_refilter:874 Filter start
+0.070274 (0.000008): menu_refilter:954 Filter done
+0.070276 (0.000002): menu_update:1038 
+0.071275 (0.000999): menu_update:1058 Background
+0.076147 (0.004872): menu_update:1130 
+0.076155 (0.000008): menu:1494 X Event
+0.076158 (0.000003): menu:1494 X Event
+0.076159 (0.000001): menu:1494 X Event
+0.076161 (0.000002): menu:1494 X Event
+0.076162 (0.000001): menu:1494 X Event
+0.076189 (0.000027): menu_update:1038 
+0.076464 (0.000275): menu_update:1058 Background
+0.076777 (0.000313): menu_update:1130 
+0.076783 (0.000006): menu:1494 X Event
+0.109359 (0.032576): menu:1494 X Event
+2.098645 (1.989286): menu:1494 X Event
+2.098704 (0.000059): menu_update:1038 
+2.098762 (0.000058): menu_update:1058 Background
+2.099256 (0.000494): menu_update:1130 
+2.248832 (0.149576): menu:1494 X Event
+2.366193 (0.117361): menu:1494 X Event
+2.366225 (0.000032): menu_update:1038 
+2.366266 (0.000041): menu_update:1058 Background
+2.366703 (0.000437): menu_update:1130 
+2.503529 (0.136826): menu:1494 X Event
+2.597188 (0.093659): menu:1494 X Event
+2.597216 (0.000028): menu_update:1038 
+2.597447 (0.000231): menu_update:1058 Background
+2.597793 (0.000346): menu_update:1130 
+2.732346 (0.134553): menu:1494 X Event
+2.890788 (0.158442): menu:1494 X Event
+2.994556 (0.000000): Stopped
