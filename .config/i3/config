@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:System San Francisco Display Regular 10
+font pango:System San Francisco Display Regular 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -78,17 +78,14 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
-set $workspace1  "1: "
-set $workspace2  "2: "
-set $workspace3  "3: "
-set $workspace4  "4: "
+set $workspace1  "1: "
 set $workspace10 "10: "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -98,9 +95,9 @@ bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -176,7 +173,9 @@ bar {
 }
 
 # rofi
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+exec_always xrdb ~/.Xresources
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 460 -font "System San Francisco Display 18"
+
 
 # Gaps configuration
 for_window [class="^.*"] border pixel 0
@@ -185,12 +184,10 @@ gaps outer 0
 smart_gaps on
 
 #Wallpaper and screens
-exec --no-startup-id xrandr --output HDMI1 --auto --left-of LVDS1
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/xq7zOck.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/wallhaven-16687.jpg
 
 #Screen locking
-#bindsym $mod+Shift+x exec ~/dotfiles/scripts/lock.sh
-bindsym $mod+Shift+x exec ~/Pictures/Covers/cover.sh
+bindsym $mod+Shift+x exec lock
 
 
 # Pulse Audio controls

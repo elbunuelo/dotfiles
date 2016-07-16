@@ -84,12 +84,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 PS1="$PS1"'$([ -n "$TMUX"  ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 setopt rmstarsilent
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH=$PATH:$HOME/arm-2008q3/bin
-export PATH=$PATH:/opt/android-studio/bin
-export JAVA_HOME="/usr/java/latest"
-export ANDROID_HOME="/opt/android-sdk-linux"
-export PATH=$PATH:/opt/android-sdk-linux/tools
-export PATH="/usr/local/heroku/bin:$PATH"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
+#export PATH=$PATH:$HOME/arm-2008q3/bin
+#export PATH=$PATH:/opt/android-studio/bin
+#export JAVA_HOME="/usr/java/latest"
+#export ANDROID_HOME="/opt/android-sdk-linux"
+#export PATH=$PATH:/opt/android-sdk-linux/tools
+#export PATH="/usr/local/heroku/bin:$PATH"
 
