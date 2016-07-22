@@ -228,3 +228,6 @@ nnoremap <leader>r :call NumberToggle()<CR>
 
 "Autoformat
  let g:formatters_php = ['htmlbeautify']
+
+"calendar
+nnoremap <c-c> :Calendar<CR>
