@@ -231,3 +231,8 @@ nnoremap <leader>r :call NumberToggle()<CR>
 
 "calendar
 nnoremap <c-c> :Calendar<CR>
+
+"Display tab characters
+set list
+set listchars=tab:>-
+
