@@ -34,4 +34,8 @@ Plug 'tpope/vim-eunuch'
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
 Plug 'Chiel92/vim-autoformat'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
+
 call plug#end()
