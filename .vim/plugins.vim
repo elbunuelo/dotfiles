@@ -16,10 +16,12 @@ Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'joonty/vdebug'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/syntastic'
+Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'tobyS/vmustache' | Plug 'SirVer/ultisnips' |  Plug 'tobyS/pdv'
 Plug 'tobyS/vmustache' |  Plug 'tobyS/php-accessors.vim'
 Plug 'tpope/vim-fugitive' | Plug 'idanarye/vim-merginal'

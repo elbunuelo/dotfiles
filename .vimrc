@@ -64,6 +64,7 @@ filetype plugin indent on
 
 "Line numbers and length
 set relativenumber
+set number
 set tw=79
 set nowrap
 set fo-=t
@@ -112,6 +113,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phplint']
 let g:syntastic_quiet_messages = {'level': 'warnings'}
+let g:syntastic_javascript_checkers=['eslint']
 
 "Php documentor configuration
 let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
