@@ -1,11 +1,12 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/elbunuelo/.oh-my-zsh
+  export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+POWERLEVEL9K_MODE="nerdfont-complete"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -82,7 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-PS1="$PS1"'$([ -n "$TMUX"  ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 setopt rmstarsilent
 #export PATH="$HOME/.rbenv/bin:$PATH"
 #eval "$(rbenv init -)"
@@ -92,4 +92,45 @@ setopt rmstarsilent
 #export ANDROID_HOME="/opt/android-sdk-linux"
 #export PATH=$PATH:/opt/android-sdk-linux/tools
 #export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
+alias basestone="cd ~/Projects/Basestone/basestone"
+alias basestone-connect="basestone && vagrant up && vagrant ssh"
+alias basestone-stop="basestone && vagrant halt"
+alias webapp="cd ~/Projects/Basestone/web-app"
+alias webapp-serve="webapp && npm run dev"
+alias hivescales="cd ~/Projects/bip2"
+alias hivescales-serve="hivescales && ./build.py serve & ./build.py webpack:watch:hive_scales"
 
+
+# Even Better Ls https://github.com/illinoisjackson/even-better-ls
+LS_COLORS=$(ls_colors_generator)
+
+run_ls() {
+        ls-i --color=auto -w $(tput cols) "$@"
+
+}
+
+run_dir() {
+        dir-i --color=auto -w $(tput cols) "$@"
+
+}
+
+run_vdir() {
+        vdir-i --color=auto -w $(tput cols) "$@"
+
+}
+alias ls="run_ls"
+alias dir="run_dir"
+alias vdir="run_vdir"
+
+#POWERLEVEL_9K
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_SHORTEN_STRATEGY=Default
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+
+PS1="$PS1"'$([ -n "$TMUX"  ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
