@@ -1,11 +1,13 @@
+POWERLEVEL9K_MODE='nerdfont-complete'
+export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/elbunuelo/.oh-my-zsh
+export ZSH=/home/vagrant/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -53,7 +55,6 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="/home/elbunuelo/.rvm/bin:/home/elbunuelo/.rvm/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/elbunuelo/.local/bin:/home/elbunuelo/bin:/home/elbunuelo/.local/bin:/home/elbunuelo/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -92,4 +93,23 @@ setopt rmstarsilent
 #export ANDROID_HOME="/opt/android-sdk-linux"
 #export PATH=$PATH:/opt/android-sdk-linux/tools
 #export PATH="/usr/local/heroku/bin:$PATH"
+source ~/.virtualenvs/baseenv/bin/activate
 
+#POWERLEVEL9K THEME
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_SHORTEN_STRATEGY=Default
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+
+alias basestone="cd /vagrant/tmp/basestone/issuing_platform/"
+alias basestone-server="basestone && python manage.py runserver 0.0.0.0:8000"
+alias basestone-celery="basestone && celery worker -l info -A core --autoreload -E --workdir /vagrant/tmp/basestone/issuing_platform/"
+alias basestone-test="basestone && REUSE_DB=1 python manage.py test --settings=core.settings_testing"
+alias basestone-test-noreuse="basestone && REUSE_DB=0 python manage.py test --settings=core.settings_testing"
+alias basestone-makemigrations="basestone && python manage.py makemigrations"
+alias basestone-migrate="basestone && python manage.py migrate"
+export AWS_ACCESS_KEY_ID=AKIAJIC3LRQVZ2ICEG3Q
+export AWS_SECRET_ACCESS_KEY=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
