@@ -100,8 +100,10 @@ alias basestone-connect="basestone && vagrant up && vagrant ssh"
 alias basestone-stop="basestone && vagrant halt"
 alias webapp="cd ~/Projects/Basestone/web-app"
 alias webapp-serve="webapp && npm run dev"
+alias issuingplatform="cd ~/Projects/Basestone/issuing_platform"
 alias hivescales="cd ~/Projects/bip2"
 alias hivescales-serve="hivescales && ./build.py serve & ./build.py webpack:watch:hive_scales"
+alias change-mac="sudo ifconfig wlp3s0 down; sudo macchanger -e wlp3s0; sudo ifconfig wlp3s0 up; sudo dhclient -r wlp3s0; sudo dhclient wlp3s0"
 
 
 # Even Better Ls https://github.com/illinoisjackson/even-better-ls
@@ -126,7 +128,7 @@ alias dir="run_dir"
 alias vdir="run_vdir"
 
 #POWERLEVEL_9K
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv virtualenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
