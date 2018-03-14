@@ -54,7 +54,7 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="/home/elbunuelo/.rvm/bin:/home/elbunuelo/.rvm/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/elbunuelo/.local/bin:/home/elbunuelo/bin:/home/elbunuelo/.local/bin:/home/elbunuelo/bin"
+#export PATH="/home/elbunuelo/.rvm/bin:/home/elbunuelo/.rvm/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/elbunuelo/.local/bin:/home/elbunuelo/bin:/home/elbunuelo/.local/bin:/home/elbunuelo/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -92,8 +92,8 @@ setopt rmstarsilent
 #export ANDROID_HOME="/opt/android-sdk-linux"
 #export PATH=$PATH:/opt/android-sdk-linux/tools
 #export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 alias basestone="cd ~/Projects/Basestone/basestone"
 alias basestone-connect="basestone && vagrant up && vagrant ssh"
@@ -104,28 +104,6 @@ alias issuingplatform="cd ~/Projects/Basestone/issuing_platform"
 alias hivescales="cd ~/Projects/bip2"
 alias hivescales-serve="hivescales && ./build.py serve & ./build.py webpack:watch:hive_scales"
 alias change-mac="sudo ifconfig wlp3s0 down; sudo macchanger -e wlp3s0; sudo ifconfig wlp3s0 up; sudo dhclient -r wlp3s0; sudo dhclient wlp3s0"
-
-
-# Even Better Ls https://github.com/illinoisjackson/even-better-ls
-LS_COLORS=$(ls_colors_generator)
-
-run_ls() {
-        ls-i --color=auto -w $(tput cols) "$@"
-
-}
-
-run_dir() {
-        dir-i --color=auto -w $(tput cols) "$@"
-
-}
-
-run_vdir() {
-        vdir-i --color=auto -w $(tput cols) "$@"
-
-}
-alias ls="run_ls"
-alias dir="run_dir"
-alias vdir="run_vdir"
 
 #POWERLEVEL_9K
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv virtualenv vcs)

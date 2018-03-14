@@ -28,6 +28,7 @@ Plug 'tpope/vim-fugitive' | Plug 'idanarye/vim-merginal'
 Plug 'wavded/vim-stylus', { 'for': ['stylus', 'markdown'] }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-capslock'

@@ -47,7 +47,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 
 "Color scheme
 set t_Co=256
-color wombat256mod
+color molokai
 
 "Airline configuration
 let g:airline_powerline_fonts = 1
