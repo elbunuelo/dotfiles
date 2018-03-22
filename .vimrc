@@ -1,4 +1,3 @@
-
 "Plugins configuration
 source ~/.vim/plugins.vim
 
@@ -44,6 +43,9 @@ vnoremap > >gv
 "Highlight Whitespace
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
+
+"Fix backspace issues
+set backspace=indent,eol,start
 
 "Color scheme
 set t_Co=256
@@ -163,11 +165,6 @@ let g:vim_json_syntax_conceal = 0
 "Use w!! to save readonly files
 cmap w!! w !sudo tee > /dev/null %
 
-"Phinx execution
-map <Leader>C <esc>:! ./vendor/bin/phinx create
-map <Leader>M <esc>:! ./vendor/bin/phinx migrate<CR>
-map <Leader>R <esc>:! ./vendor/bin/phinx rollback<CR>
-
 "thyme
 nmap <Leader>T :!thyme -d<cr>
 
@@ -180,25 +177,6 @@ if executable('ag')
     command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
     nnoremap \ :Ag<SPACE>
 endif
-
-
-"Vdebug
-let g:vdebug_options= {
-\    "port" : 9000,
-\    "server" : 'dev.seguridadenlinea.com',
-\    "timeout" : 20,
-\    "on_close" : 'detach',
-\    "break_on_open" : 1,
-\    "ide_key" : '',
-\    "path_maps" : {},
-\    "debug_window_level" : 0,
-\    "debug_file_level" : 0,
-\    "debug_file" : "",
-\    "watch_window_style" : 'expanded',
-\    "marker_default" : '⬦',
-\    "marker_closed_tree" : '▸',
-\    "marker_open_tree" : '▾'
-\}
 
 "tagbar
 nnoremap <leader>b :TagbarToggle<CR>
