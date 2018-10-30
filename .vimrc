@@ -216,3 +216,5 @@ nnoremap <c-c> :Calendar<CR>
 set list
 set listchars=tab:>-
 
+"Python
+let python_highlight_all=1

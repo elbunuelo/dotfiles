@@ -39,5 +39,8 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'vim-scripts/indentpython.vim'
+Plug 'nvie/vim-flake8'
+
 
 call plug#end()
