@@ -13,7 +13,6 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'godlygeek/tabular'
 Plug 'gregsexton/MatchTag', { 'for': 'html' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-Plug 'joonty/vdebug'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx'
@@ -39,5 +38,6 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 call plug#end()

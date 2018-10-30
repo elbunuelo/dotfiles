@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
+export TERM="xterm-256color"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -84,22 +85,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 setopt rmstarsilent
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
 
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
-alias basestone="cd ~/Projects/Basestone/basestone"
-alias basestone-connect="basestone && vagrant up && vagrant ssh"
-alias basestone-stop="basestone && vagrant halt"
-alias webapp="cd ~/Projects/Basestone/web-app"
-alias webapp-serve="webapp && npm run dev"
-alias issuingplatform="cd ~/Projects/Basestone/issuing_platform"
-alias hivescales="cd ~/Projects/bip2"
-alias hivescales-serve="hivescales && ./build.py serve & ./build.py webpack:watch:hive_scales"
 alias change-mac="sudo ifconfig wlp3s0 down; sudo macchanger -e wlp3s0; sudo ifconfig wlp3s0 up; sudo dhclient -r wlp3s0; sudo dhclient wlp3s0"
 
 #POWERLEVEL_9K
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv virtualenv vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context anaconda rbenv virtualenv dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
@@ -109,4 +102,12 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 PS1="$PS1"'$([ -n "$TMUX"  ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export PATH="/Users/elbunuelo/anaconda3/bin:/Users/elbunuelo/platform-tools:$PATH"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias biprun="docker-compose run web python manage.py"
+alias bipup="docker-compose up"
+alias bipdown="docker-compose down"
