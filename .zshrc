@@ -102,12 +102,38 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 PS1="$PS1"'$([ -n "$TMUX"  ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-export PATH="/Users/elbunuelo/anaconda3/bin:/Users/elbunuelo/platform-tools:$PATH"
+export PATH="/Users/elbunuelo/anaconda3/bin:/Users/elbunuelo/platform-tools:/opt/apache-maven/bin:/Users/elbunuelo/Library/Android/sdk/tools/bin:$PATH"
+
+alias djangorun="docker-compose exec web python manage.py"
+alias bipup="docker-compose up"
+alias bipdown="docker-compose down"
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias biprun="docker-compose run web python manage.py"
-alias bipup="docker-compose up"
-alias bipdown="docker-compose down"
+
+function tmuxs () {
+  cd ~/Projects
+  SESSIONS=(BIP SRV LCK TTA MCA BLL LRN MSC)
+  for NAME in "${SESSIONS[@]}"
+  do
+    tmux has -t $NAME
+    if [ $? != 0 ]
+    then
+      tmux new -d -s $NAME
+    fi
+  done
+  tmux attach
+}
+alias tmux-sessions=tmuxs
+export JAVA_HOME=`/usr/libexec/java_home -v 15`
+
+export ANDROID_HOME=/Users/elbunuelo/Library/Android/sdk
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home
+export _JAVA_OPTIONS="-Xms4000m -Xmx8000m"
+export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/22.0.7026061
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
