@@ -39,8 +39,7 @@ return {
       "markdown",
       "scss",
       "typescript",
-      "typescriptreact",
-      "yaml",
+      "typescriptreact"
     },
   }
 }

@@ -137,8 +137,8 @@ command -v brew > /dev/null 2>&1 && [[ $- == *i* ]] && source "$(brew --prefix f
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias vim=nvim
-alias aha-cli=$(which aha)
-alias aha=~/Projects/aha/aha-dev-cli/aha
+which aha > /dev/null && alias aha-cli=$(which aha)
+[ -f ~/Projects/aha/aha-dev-cli/aha ] && alias aha=~/Projects/aha/aha-dev-cli/aha
 
 command -v brew > /dev/null 2>&1 && . $(brew --prefix asdf)/libexec/asdf.sh
 export ASDF_DATA_DIR=~/.asdf
@@ -186,3 +186,4 @@ alias webpack-restart='docker compose restart webpack'
 
 
 export PATH=$PATH:/opt/homebrew/opt/python@3.9/libexec/bin
+export ZK_NOTEBOOK_DIR=~/notes/personal

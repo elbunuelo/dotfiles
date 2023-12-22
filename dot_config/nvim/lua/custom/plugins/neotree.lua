@@ -18,6 +18,22 @@ return {
       mappings = {
         ["<C-x>"] = "close_window"
       }
+    },
+    sources = {
+      -- default sources
+      "filesystem",
+      "buffers",
+      "git_status",
+      -- user sources goes here
+      "zk",
+    },
+    zk = {
+      follow_current_file = true,
+      window = {
+        mappings = {
+          ["n"] = "change_query",
+        },
+      },
     }
   },
 }
