@@ -172,7 +172,7 @@ export EDITOR=nvim
 
 [ -f ~/forgit/forgit.plugin.zsh ] && source ~/forgit/forgit.plugin.zsh
 
-eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+which pipenv > /dev/null && eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
 export VIMCONFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
