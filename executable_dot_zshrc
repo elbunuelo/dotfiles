@@ -137,7 +137,7 @@ command -v brew > /dev/null 2>&1 && [[ $- == *i* ]] && source "$(brew --prefix f
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias vim=nvim
-which aha > /dev/null && alias aha-cli=$(which aha)
+which aha > /dev/null 2>&1 && alias aha-cli=$(which aha)
 [ -f ~/Projects/aha/aha-dev-cli/aha ] && alias aha=~/Projects/aha/aha-dev-cli/aha
 
 command -v brew > /dev/null 2>&1 && . $(brew --prefix asdf)/libexec/asdf.sh
@@ -172,7 +172,7 @@ export EDITOR=nvim
 
 [ -f ~/forgit/forgit.plugin.zsh ] && source ~/forgit/forgit.plugin.zsh
 
-which pipenv > /dev/null && eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+which pipenv > /dev/null 2>&1 && eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
 export VIMCONFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
