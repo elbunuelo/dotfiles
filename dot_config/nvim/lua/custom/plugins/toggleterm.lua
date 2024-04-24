@@ -1,7 +1,6 @@
-
 function setup_lazygit()
-  local Terminal  = require('toggleterm.terminal').Terminal
-  local lazygit = Terminal:new({
+  local Terminal = require('toggleterm.terminal').Terminal
+  local lazygit  = Terminal:new({
     cmd = "lazygit",
     dir = "git_dir",
     direction = "float",
@@ -11,7 +10,7 @@ function setup_lazygit()
     -- function to run on opening the terminal
     on_open = function(term)
       vim.cmd("startinsert!")
-      vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
+      vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
     end,
     -- function to run on closing the terminal
     on_close = function(term)
@@ -19,12 +18,13 @@ function setup_lazygit()
     end,
   })
 
-  vim.keymap.set("n", "<leader>g", function () lazygit:toggle() end, {noremap = true, silent = true, desc = "Open lazygit"})
+  vim.keymap.set("n", "<leader>g", function() lazygit:toggle() end,
+    { noremap = true, silent = true, desc = "Open lazygit" })
 end
 
 function setup_aha()
-  local Terminal  = require('toggleterm.terminal').Terminal
-  local aha = Terminal:new({
+  local Terminal = require('toggleterm.terminal').Terminal
+  local aha      = Terminal:new({
     cmd = "~/Projects/aha/aha-dev-cli/aha",
     dir = "git_dir",
     direction = "float",
@@ -37,7 +37,7 @@ function setup_aha()
     -- function to run on opening the terminal
     on_open = function(term)
       vim.cmd("startinsert!")
-      vim.api.nvim_buf_set_keymap(term.bufnr, "n", "<esc>", "<cmd>startinsert<CR><C-c>", {noremap = true, silent = true})
+      vim.api.nvim_buf_set_keymap(term.bufnr, "n", "<esc>", "<cmd>startinsert<CR><C-c>", { noremap = true, silent = true })
     end,
     -- function to run on closing the terminal
     on_close = function(term)
@@ -51,12 +51,12 @@ function setup_aha()
     end
   })
 
-  vim.keymap.set("n", "<leader>!", function() aha:toggle() end, {noremap = true, silent = true})
+  vim.keymap.set("n", "<leader>!", function() aha:toggle() end, { noremap = true, silent = true, desc = 'Aha! CLI' })
 end
 
 return {
   'akinsho/toggleterm.nvim',
-  init = function ()
+  init = function()
     local module = require('toggleterm.terminal')
     local function open_in_tab()
       local id = module.identify()
@@ -77,7 +77,7 @@ return {
     end
 
     function _G.set_terminal_keymaps()
-      local opts = {buffer = 0}
+      local opts = { buffer = 0 }
       vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
       -- vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
       vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
@@ -94,6 +94,6 @@ return {
     setup_lazygit()
   end,
   opts = {
-     open_mapping = [[<c-\>]]
+    open_mapping = [[<c-\>]]
   }
 }
