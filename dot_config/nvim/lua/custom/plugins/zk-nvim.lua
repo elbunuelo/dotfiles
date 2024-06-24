@@ -9,7 +9,13 @@ vim.api.nvim_set_keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('T
 -- Open notes.
 vim.api.nvim_set_keymap("n", "<leader>zo", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", opts)
 -- Open notes associated with the selected tags.
-vim.api.nvim_set_keymap("n", "<leader>zt", "<Cmd>ZkTags<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zT", "<Cmd>ZkTags<CR>", opts)
+
+vim.api.nvim_set_keymap("n", "<leader>zt", "<Cmd>ZkNew { group = 'daily', edit = true }<CR>", opts)
+
+vim.api.nvim_set_keymap("n", "<leader>zw", "<Cmd>ZkNew { group = 'weekly', edit = true }<CR>", opts)
+
+vim.api.nvim_set_keymap("n", "<leader>zl", "<Cmd>ZkInsertLink<CR>", opts)
 
 -- Search for the notes matching a given query.
 vim.api.nvim_set_keymap("n", "<leader>zf",
