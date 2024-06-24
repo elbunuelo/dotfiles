@@ -1,3 +1,3 @@
-vim.keymap.set({ 'n' }, 'K', 'i<CR><esc>')
+-- vim.keymap.set({ 'n' }, 'K', 'i<CR><esc>')
 
-return { }
+return {}
