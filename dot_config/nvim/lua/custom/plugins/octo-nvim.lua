@@ -7,21 +7,25 @@ vim.api.nvim_set_keymap('n', '<leader>op', '<cmd>:Octo pr search review-requeste
 vim.api.nvim_set_keymap('n', '<leader>os', '<cmd>:Octo pr search<cr>',
   { desc = 'Search all PRs' })
 
-vim.api.nvim_set_keymap('n', '<leader>oc', '<cmd>:Octo pr checkout<cr>',
-  { desc = 'Check out currently selected PR.' })
-
--- ORI is from Octo review init.
-vim.api.nvim_set_keymap('n', '<leader>ori', '<cmd>:Octo pr review<cr>',
-  { desc = 'Start a review on the currently selected PR.' })
-
-vim.api.nvim_set_keymap('n', '<leader>orr', '<cmd>:Octo pr review<cr>',
-  { desc = 'Resume a review on the currently selected PR.' })
-
-vim.api.nvim_set_keymap('n', '<leader>orc', '<cmd>:Octo review comments<cr>',
-  { desc = 'Reveiw pending comments in current review.' })
-
-vim.api.nvim_set_keymap('n', '<leader>ors', '<cmd>:Octo review submit<cr>',
-  { desc = 'Submit current review.' })
+-- Disabling for now, using default keymaps
+-- vim.api.nvim_set_keymap('n', '<leader>oc', '<cmd>:Octo pr checkout<cr>',
+--   { desc = 'Check out currently selected PR.' })
+--
+-- -- ORI is from Octo review init.
+-- vim.api.nvim_set_keymap('n', '<leader>ori', '<cmd>:Octo pr review<cr>',
+--   { desc = 'Start a review on the currently selected PR.' })
+--
+-- vim.api.nvim_set_keymap('n', '<leader>orr', '<cmd>:Octo pr review<cr>',
+--   { desc = 'Resume a review on the currently selected PR.' })
+--
+-- vim.api.nvim_set_keymap('n', '<leader>orc', '<cmd>:Octo review comments<cr>',
+--   { desc = 'Reveiw pending comments in current review.' })
+--
+-- vim.api.nvim_set_keymap('n', '<leader>ov', '<cmd>:Octo pr changes<cr>',
+--   { desc = 'View changes in current pr' })
+--
+-- vim.api.nvim_set_keymap('n', '<leader>ors', '<cmd>:Octo review submit<cr>',
+--   { desc = 'Submit current review.' })
 
 -- <space>ca adds a comment
 -- <space>sa adds a suggestion
@@ -38,6 +42,11 @@ return {
       {
         suppress_missing_scope = {
           projects_v2 = true,
+        },
+        mappings = {
+          submit_win = {
+            approve_review = { lhs = "<C-s>", desc = "approve review" },
+          }
         }
       }
     )
