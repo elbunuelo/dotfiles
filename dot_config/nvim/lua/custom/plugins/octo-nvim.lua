@@ -6,6 +6,8 @@ vim.api.nvim_set_keymap('n', '<leader>op', '<cmd>:Octo pr search review-requeste
   { desc = 'Search PRs awaiting review from me.' })
 vim.api.nvim_set_keymap('n', '<leader>os', '<cmd>:Octo pr search<cr>',
   { desc = 'Search all PRs' })
+vim.api.nvim_set_keymap('n', '<leader>om', '<cmd>:Octo pr search author:elbunuelo<cr>',
+  { desc = 'Search my PRs' })
 
 -- Disabling for now, using default keymaps
 -- vim.api.nvim_set_keymap('n', '<leader>oc', '<cmd>:Octo pr checkout<cr>',
@@ -24,8 +26,8 @@ vim.api.nvim_set_keymap('n', '<leader>os', '<cmd>:Octo pr search<cr>',
 -- vim.api.nvim_set_keymap('n', '<leader>ov', '<cmd>:Octo pr changes<cr>',
 --   { desc = 'View changes in current pr' })
 --
--- vim.api.nvim_set_keymap('n', '<leader>ors', '<cmd>:Octo review submit<cr>',
---   { desc = 'Submit current review.' })
+vim.api.nvim_set_keymap('n', '<leader>ors', '<cmd>:Octo review submit<cr>',
+  { desc = 'Submit current review.' })
 
 -- <space>ca adds a comment
 -- <space>sa adds a suggestion
