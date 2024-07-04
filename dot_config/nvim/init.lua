@@ -433,7 +433,10 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  tsserver = {},
+  tsserver = {
+    importModuleSpecifierPreference = 'relative',
+    importModuleSpecifierEnding = 'minimal',
+  },
   solargraph = {},
   lua_ls = {
     Lua = {
