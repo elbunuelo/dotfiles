@@ -25,7 +25,7 @@ vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
 
 vim.api.nvim_create_autocmd('BufAdd', {
   callback = function()
-    vim.cmd("setlocal conceallevel=2")
+    vim.cmd("set conceallevel=2")
   end,
   pattern = '*.md'
 })

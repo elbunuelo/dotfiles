@@ -434,16 +434,22 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {
-    importModuleSpecifierPreference = 'relative',
-    importModuleSpecifierEnding = 'minimal',
+    init_options = {
+      preferences = {
+        importModuleSpecifierPreference = 'relative',
+        importModuleSpecifierEnding = 'minimal',
+      }
+    }
   },
   solargraph = {},
   lua_ls = {
-    Lua = {
-      format = { enable = true },
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
+    settings = {
+      Lua = {
+        format = { enable = true },
+        workspace = { checkThirdParty = false },
+        telemetry = { enable = false },
+      },
+    }
   },
 }
 
@@ -469,7 +475,8 @@ mason_lspconfig.setup_handlers {
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      settings = servers[server_name],
+      settings = servers[server_name] and servers[server_name].settings or {},
+      init_options = servers[server_name] and servers[server_name].init_options or {}
     }
   end,
 }
