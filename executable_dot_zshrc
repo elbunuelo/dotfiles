@@ -160,6 +160,7 @@ alias aha-railsconsole="docker compose exec web bin/rails c"
 eval "$(direnv hook zsh)"
 
 [ -f $HOME/.npm_token ] && export NPM_TOKEN=$(cat $HOME/.npm_token)
+[ -f $HOME/.zendesk_indicator ] && source "$HOME/.zendesk_indicator"
 ulimit -n 12288
 
 export NODE_OPTIONS=--max-old-space-size=8196

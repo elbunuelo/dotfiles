@@ -3,7 +3,7 @@
 
 -- For some
 vim.keymap.set('n', '<leader><cr>', '<Cmd>lua require("follow-md-links").follow_link()<cr>',
-  { silent = 'true', noremap = 'true', desc = 'Open link under cursor' })
+  { silent = true, noremap = true, desc = 'Open link under cursor' })
 
 return {
   'jghauser/follow-md-links.nvim'
