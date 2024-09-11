@@ -159,8 +159,20 @@ alias aha-railsconsole="docker compose exec web bin/rails c"
 
 eval "$(direnv hook zsh)"
 
-[ -f $HOME/.npm_token ] && export NPM_TOKEN=$(cat $HOME/.npm_token)
-[ -f $HOME/.zendesk_indicator ] && source "$HOME/.zendesk_indicator"
+EXTERNAL_FILES=( \
+  .npm_token \
+  .zendesk_indicator \
+  .sentry \
+  .llm-sidekick \
+  .aha.nvim \
+  )
+
+for FILE in $EXTERNAL_FILES
+do
+  FILE_PATH="$HOME/$FILE"
+  [ -f "$FILE_PATH" ] && source "$FILE_PATH"
+done
+
 ulimit -n 12288
 
 export NODE_OPTIONS=--max-old-space-size=8196
@@ -179,12 +191,25 @@ export VIMCONFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
 
 alias v2g='function rename_video_to_gif(){ ffmpeg -i $1 $2.gif && gifsicle -O3 $2.gif -o $2.gif && osascript -e "display notification \"$2.gif successfully converted and saved\" with title \"MOV2GIF SUCCESS!\""};rename_video_to_gif'
-alias dce='docker compose exec'
 
 alias aha-console='dce web bin/rails c'
 alias aha-migrate='dce web bin/rails db:migrate'
-alias webpack-restart='docker compose restart webpack'
 
+alias dce='docker compose exec'
+alias dc='docker compose' # Essential
+alias dw='docker compose exec web' # allows "do rails c", "do bundle", etc.
+alias rs='docker compose exec -e DISABLE_COV=y web rspec --no-profile' # Run rspec in a container
+alias rsc='docker compose exec -e DISABLE_COV=y -e FULL_CHROME=1 web rspec --no-profile' # Run rspec in a container
+
+alias watch-ot='fswatch -0 -o -r -e "src/version\.js" src/ | xargs -0 -n1 -I{} zsh -c "yarn build && yalc push --sig  && cd ~/Projects/aha/aha-app  && yalc add @aha-app/ot-slate-v2 && cd -"'
+alias watch-editor='fswatch -0 -o -r -e "src/version\.js" src/ | xargs -0 -n1 -I{} zsh -c "yarn build && yalc push --sig  && cd ~/Projects/aha/aha-app  && yalc add @aha-app/aha-editor && cd -"'
+
+alias work-complete='vlc --play-and-exit --intf dummy ~/work-complete.mp3 > /dev/null 2>&1 &'
+
+# source "$HOME/scripts/shell/work/work.sh"
 
 export PATH=$PATH:/opt/homebrew/opt/python@3.9/libexec/bin
 export ZK_NOTEBOOK_DIR=~/notes/personal
+
+fpath=($(find "$HOME/scripts/shell" -type d -maxdepth 1 -mindepth 1) "${fpath[@]}" )
+autoload -Uk wo

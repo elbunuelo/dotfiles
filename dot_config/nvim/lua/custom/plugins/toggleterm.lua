@@ -18,7 +18,7 @@ function setup_lazygit()
     end,
   })
 
-  vim.keymap.set("n", "<leader>g", function() lazygit:toggle() end,
+  vim.keymap.set("n", "<leader>gl", function() lazygit:toggle() end,
     { noremap = true, silent = true, desc = "Open lazygit" })
 end
 
@@ -37,7 +37,8 @@ function setup_aha()
     -- function to run on opening the terminal
     on_open = function(term)
       vim.cmd("startinsert!")
-      vim.api.nvim_buf_set_keymap(term.bufnr, "n", "<esc>", "<cmd>startinsert<CR><C-c>", { noremap = true, silent = true })
+      vim.api.nvim_buf_set_keymap(term.bufnr, "n", "<esc>", "<cmd>startinsert<CR><C-c>",
+        { noremap = true, silent = true })
     end,
     -- function to run on closing the terminal
     on_close = function(term)
@@ -51,7 +52,7 @@ function setup_aha()
     end
   })
 
-  vim.keymap.set("n", "<leader>!", function() aha:toggle() end, { noremap = true, silent = true, desc = 'Aha! CLI' })
+  vim.keymap.set("n", "<leader>!c", function() aha:toggle() end, { noremap = true, silent = true, desc = 'Aha! CLI' })
 end
 
 return {
@@ -78,8 +79,8 @@ return {
 
     function _G.set_terminal_keymaps()
       local opts = { buffer = 0 }
-      vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-      -- vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+      -- vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+      -- vim.keymap.set('t', '<C-><esc>', [[<C-\><C-n>]], opts)
       vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
       vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
       vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)

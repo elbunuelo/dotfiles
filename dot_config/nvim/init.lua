@@ -67,7 +67,6 @@ require('lazy').setup({
   --
 
   -- Git related plugins
-  'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
@@ -433,7 +432,7 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  tsserver = {
+  ts_ls = {
     init_options = {
       preferences = {
         importModuleSpecifierPreference = 'relative',
