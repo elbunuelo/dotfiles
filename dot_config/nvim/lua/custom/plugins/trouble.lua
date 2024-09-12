@@ -32,5 +32,21 @@ return {
       desc = "Quickfix List (Trouble)",
     },
   },
-  opts = {}, -- for default options, refer to the configuration section for custom setup.
+  opts = {
+    modes = {
+      diagnostics = {
+        auto_open = true,
+        auto_close = true,
+        preview = {
+          type = "split",
+          relative = "win",
+          position = "right",
+          size = 0.3,
+        },
+        filter = {
+          severity = vim.diagnostic.severity.ERROR
+        }
+      }
+    }
+  }, -- for default options, refer to the configuration section for custom setup.
 }
