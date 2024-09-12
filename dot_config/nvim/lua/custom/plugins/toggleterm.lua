@@ -24,35 +24,45 @@ end
 
 function setup_aha()
   local Terminal = require('toggleterm.terminal').Terminal
-  local aha      = Terminal:new({
-    cmd = "~/Projects/aha/aha-dev-cli/aha",
-    dir = "git_dir",
-    direction = "float",
-    float_opts = {
-      border = "double",
-      width = 110,
-      height = 35,
-    },
-    close_on_exit = false,
-    -- function to run on opening the terminal
-    on_open = function(term)
-      vim.cmd("startinsert!")
-      vim.api.nvim_buf_set_keymap(term.bufnr, "n", "<esc>", "<cmd>startinsert<CR><C-c>",
-        { noremap = true, silent = true })
-    end,
-    -- function to run on closing the terminal
-    on_close = function(term)
-      vim.cmd("startinsert!")
-    end,
+  local aha_factory = function(command)
+    return Terminal:new({
+      cmd = "~/Projects/aha/aha-dev-cli/aha " .. command,
+      dir = "git_dir",
+      direction = "float",
+      float_opts = {
+        border = "double",
+        width = 110,
+        height = 35,
+      },
+      close_on_exit = false,
+      -- function to run on opening the terminal
+      on_open = function(term)
+        vim.cmd("startinsert!")
+        vim.api.nvim_buf_set_keymap(term.bufnr, "n", "<esc>", "<cmd>startinsert<CR><C-c>",
+          { noremap = true, silent = true })
+      end,
+      -- function to run on closing the terminal
+      on_close = function(term)
+        vim.cmd("startinsert!")
+      end,
 
-    on_exit = function(term, job, exit_code)
-      if exit_code ~= 0 then
-        vim.api.nvim_input('<CR>')
-      end
-    end
-  })
+    })
+  end
 
-  vim.keymap.set("n", "<leader>!c", function() aha:toggle() end, { noremap = true, silent = true, desc = 'Aha! CLI' })
+  vim.keymap.set("n", "<leader>!!", function() aha_factory(''):toggle() end,
+    { noremap = true, silent = true, desc = 'Aha! CLI' })
+  vim.keymap.set("n", "<leader>!p", function() aha_factory('pull_request'):toggle() end,
+    { noremap = true, silent = true, desc = 'Aha! Pull request' })
+  vim.keymap.set("n", "<leader>!c", function() aha_factory('create'):toggle() end,
+    { noremap = true, silent = true, desc = 'Aha! Create' })
+  vim.keymap.set("n", "<leader>!b", function() aha_factory('bug_fix'):toggle() end,
+    { noremap = true, silent = true, desc = 'Aha! Bug Fix' })
+  vim.keymap.set("n", "<leader>!z", function() aha_factory('support_fix'):toggle() end,
+    { noremap = true, silent = true, desc = 'Aha! Zendesk Support Fix' })
+  vim.keymap.set("n", "<leader>!s", function() aha_factory('start'):toggle() end,
+    { noremap = true, silent = true, desc = 'Aha! Start' })
+  vim.keymap.set("n", "<leader>!m", function() aha_factory('slack'):toggle() end,
+    { noremap = true, silent = true, desc = 'Aha! Slack Message' })
 end
 
 return {
