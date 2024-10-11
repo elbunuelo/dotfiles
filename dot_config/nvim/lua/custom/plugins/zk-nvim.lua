@@ -1,27 +1,55 @@
 -- See .config/nvim/after/syntax/markdown.vim for link conceal config
 -- See .config/nvim/ftplugin/markdown.lua for zk specific bindings.
 
-local opts = { noremap = true, silent = false }
+vim.api.nvim_set_keymap("n", "<leader>zf",
+  "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>",
+  { noremap = true, silent = false, desc = "Find notes" })
+-- Search for the notes matching the current visual selection.
+vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>",
+  { noremap = true, silent = false, desc = "Find notes matching selection" })
 
--- Create a new note after asking for its title.
-vim.api.nvim_set_keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>",
+  { noremap = true, silent = false, desc = "Create new note" })
 
 -- Open notes.
-vim.api.nvim_set_keymap("n", "<leader>zo", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zo", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>",
+  { noremap = true, silent = false, desc = "Open note" })
 -- Open notes associated with the selected tags.
-vim.api.nvim_set_keymap("n", "<leader>zT", "<Cmd>ZkTags<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zT", "<Cmd>ZkTags<CR>",
+  { noremap = true, silent = false, desc = "Open note associated with selected tags" })
 
-vim.api.nvim_set_keymap("n", "<leader>zt", "<Cmd>ZkNew { group = 'daily', edit = true }<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zt", "<Cmd>ZkNew { group = 'daily', edit = true }<CR>",
+  { noremap = true, silent = false, desc = "Open today's log" })
 
-vim.api.nvim_set_keymap("n", "<leader>zw", "<Cmd>ZkNew { group = 'weekly', edit = true }<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zw", "<Cmd>ZkNew { group = 'weekly', edit = true }<CR>",
+  { noremap = true, silent = false, desc = "Open this week's log" })
 
-vim.api.nvim_set_keymap("n", "<leader>zl", "<Cmd>ZkInsertLink<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zll", "<Cmd>ZkInsertLink<CR>",
+  { noremap = true, silent = false, desc = "Insert link" })
 
--- Search for the notes matching a given query.
-vim.api.nvim_set_keymap("n", "<leader>zf",
-  "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>", opts)
--- Search for the notes matching the current visual selection.
-vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zL", "<Cmd>ZkInsertLinkAtSelection<CR>",
+  { noremap = true, silent = false, desc = "Insert link at selection" })
+
+-- Create a new note in the same directory as the current buffer, using the current selection for title.
+vim.api.nvim_set_keymap("v", "<leader>znt", ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>",
+  { noremap = true, silent = false, desc = "Create new note with selected title" })
+
+-- Create a new note in the same directory as the current buffer, using the current selection for note content and asking for its title.
+vim.api.nvim_set_keymap("v", "<leader>znc",
+  ":'<,'>ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>",
+  { noremap = true, silent = false, desc = "Create new note with selected content" })
+
+-- Open notes linking to the current buffer.
+vim.api.nvim_set_keymap("n", "<leader>zb", "<Cmd>ZkBacklinks<CR>",
+  { noremap = true, silent = false, desc = "Show notes linking current note" })
+
+-- Preview a linked note.
+vim.api.nvim_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>",
+  { noremap = true, silent = false, desc = "Preview linked note" })
+
+-- Open the code actions for a visual selection.
+vim.api.nvim_set_keymap("v", "<leader>za", ":'<,'>lua vim.lsp.buf.range_code_action()<CR>",
+  { noremap = true, silent = false, desc = "Open code actions for selection" })
 
 vim.api.nvim_create_autocmd('BufAdd', {
   callback = function()
@@ -31,7 +59,7 @@ vim.api.nvim_create_autocmd('BufAdd', {
 })
 
 return {
-  "mickael-menu/zk-nvim",
+  "zk-org/zk-nvim",
   config = function()
     require("zk").setup({
       picker = "telescope",
@@ -40,32 +68,5 @@ return {
         filetypes = { "markdown" },
       },
     })
-    if require("zk.util").notebook_root(vim.fn.expand('%:p')) ~= nil then
-      local function map(...) vim.api.nvim_buf_set_keymap(0, ...) end
-
-      -- Open the link under the caret.
-      -- map("n", "<CR>", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-
-      -- Create a new note after asking for its title.
-      -- This overrides the global `<leader>zn` mapping to create the note in the same directory as the current buffer.
-      map("n", "<leader>zn", "<Cmd>ZkNew { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>", opts)
-      -- Create a new note in the same directory as the current buffer, using the current selection for title.
-      map("v", "<leader>znt", ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>", opts)
-      -- Create a new note in the same directory as the current buffer, using the current selection for note content and asking for its title.
-      map("v", "<leader>znc",
-        ":'<,'>ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>", opts)
-
-      -- Open notes linking to the current buffer.
-      map("n", "<leader>zb", "<Cmd>ZkBacklinks<CR>", opts)
-      -- Alternative for backlinks using pure LSP and showing the source context.
-      --map('n', '<leader>zb', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
-      -- Open notes linked by the current buffer.
-      map("n", "<leader>zl", "<Cmd>ZkLinks<CR>", opts)
-
-      -- Preview a linked note.
-      map("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-      -- Open the code actions for a visual selection.
-      map("v", "<leader>za", ":'<,'>lua vim.lsp.buf.range_code_action()<CR>", opts)
-    end
   end
 }

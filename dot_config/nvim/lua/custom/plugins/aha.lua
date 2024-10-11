@@ -1,4 +1,4 @@
 -- Hello World
 return {
-  'elbunuelo/aha.nvim'
+  { dir = '~/Projects/aha/aha.nvim' }
 }

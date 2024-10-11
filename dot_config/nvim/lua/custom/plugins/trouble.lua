@@ -35,7 +35,6 @@ return {
   opts = {
     modes = {
       diagnostics = {
-        auto_open = true,
         auto_close = true,
         preview = {
           type = "split",

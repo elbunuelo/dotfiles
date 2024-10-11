@@ -151,7 +151,6 @@ alias rails='nocorrect rails'
 alias rake='noglob bundle exec rake'
 alias fix-audio='sudo launchctl stop com.apple.audio.coreaudiod && sudo launchctl start com.apple.audio.coreaudiod'
 alias restart-webpack='docker compose --env-file .env.compose restart webpack'
-alias nuke-nm-modules-recreate='rm -rf node_modules && yarn install'
 alias attach-web="docker attach aha-app-web-1"
 alias attach-worker="docker attach aha-app-worker-1"
 alias attach-webpack="docker attach aha-app-webpack-1"
@@ -205,6 +204,8 @@ alias watch-ot='fswatch -0 -o -r -e "src/version\.js" src/ | xargs -0 -n1 -I{} z
 alias watch-editor='fswatch -0 -o -r -e "src/version\.js" src/ | xargs -0 -n1 -I{} zsh -c "yarn build && yalc push --sig  && cd ~/Projects/aha/aha-app  && yalc add @aha-app/aha-editor && cd -"'
 
 alias work-complete='vlc --play-and-exit --intf dummy ~/work-complete.mp3 > /dev/null 2>&1 &'
+alias pnpm="wo pnpm"
+alias nuke="wo rm -rf node_modules packages/*/node_modules .turbo-cache"
 
 # source "$HOME/scripts/shell/work/work.sh"
 

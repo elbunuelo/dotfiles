@@ -18,5 +18,19 @@ return {
       '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr><cr>',
       { desc = "Open git link for selected lines in browser" }
     )
+
+    vim.api.nvim_set_keymap(
+      "n",
+      "<leader>gy",
+      '<cmd>lua require"gitlinker".get_buf_range_url("n")<cr>',
+      { desc = "Copy git link for current line" }
+    )
+
+    vim.api.nvim_set_keymap(
+      "v",
+      "<leader>gy",
+      '<cmd>lua require"gitlinker".get_buf_range_url("n")<cr>',
+      { desc = "Copy git link for selected lines" }
+    )
   end
 }
