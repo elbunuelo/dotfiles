@@ -24,10 +24,10 @@ vim.api.nvim_set_keymap("n", "<leader>zt", "<Cmd>ZkNew { group = 'daily', edit =
 vim.api.nvim_set_keymap("n", "<leader>zw", "<Cmd>ZkNew { group = 'weekly', edit = true }<CR>",
   { noremap = true, silent = false, desc = "Open this week's log" })
 
-vim.api.nvim_set_keymap("n", "<leader>zll", "<Cmd>ZkInsertLink<CR>",
+vim.api.nvim_set_keymap("n", "<leader>zL", "<Cmd>ZkInsertLink<CR>",
   { noremap = true, silent = false, desc = "Insert link" })
 
-vim.api.nvim_set_keymap("n", "<leader>zL", "<Cmd>ZkInsertLinkAtSelection<CR>",
+vim.api.nvim_set_keymap("v", "<leader>zL", "<Cmd>ZkInsertLinkAtSelection<CR>",
   { noremap = true, silent = false, desc = "Insert link at selection" })
 
 -- Create a new note in the same directory as the current buffer, using the current selection for title.
