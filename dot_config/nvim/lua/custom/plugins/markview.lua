@@ -1,3 +1,10 @@
+vim.api.nvim_set_keymap("n", "<leader>Ct",
+  "<Cmd>CheckboxToggle<CR>",
+  { noremap = true, silent = false, desc = "Toggle Checkbox" })
+
+vim.api.nvim_set_keymap("n", "<leader>CC",
+  "<Cmd>CheckboxNext<CR>",
+  { noremap = true, silent = false, desc = "Check/uncheck checkbox" })
 return {
   "OXY2DEV/markview.nvim",
   lazy = false, -- Recommended
@@ -83,25 +90,22 @@ return {
       }
     })
 
-    require("markview.extras.checkboxes").setup({
+    local checkboxes = require("markview.extras.checkboxes")
+    checkboxes.configuraton = {
       --- When true, list item markers will
       --- be removed.
       remove_markers = true,
 
-      --- If false, running the command on
-      --- visual mode doesn't change the
-      --- mode.
-      exit = true,
-
       default_marker = "-",
-      default_state = "X",
+      default_state = " ",
 
       --- A list of states
       states = {
         { " ", "X" },
         { "-", "o", "~" }
-      }
-    });
+      },
+    }
+    checkboxes.setup();
   end,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",

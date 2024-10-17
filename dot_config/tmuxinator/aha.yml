@@ -1,0 +1,58 @@
+# /Users/nariasgonzalez/.config/tmuxinator/aha.yml
+
+name: Aha
+root: ~/Projects/aha
+startup_window: 2
+windows:
+  - server:
+      root: ~/Projects/aha/aha-app
+      layout: tiled
+      panes:
+        - server:
+          - overmind s
+        - turbo:
+          - pnpm turbo:watch
+        - docker:
+          - docker compose up -d
+        - logs:
+          - tail -f log/development.log
+  - Aha:
+    root: ~/Projects/aha/aha-app
+    layout: main-horizontal
+    panes:
+      - editor:
+        - tmux resize-pane -D 30
+        - tmux resize-pane -Z
+        - nvim
+      - console:
+        - zsh
+  - Editor:
+      root: ~/Projects/aha/aha-app/packages/aha-editor-v2
+      layout: main-horizontal
+      panes:
+        - editor:
+          - tmux resize-pane -D 30
+          - tmux resize-pane -Z
+          - nvim
+        - console:
+          - overmind s
+  - Ot-Slate:
+      root: ~/Projects/aha/aha-app/packages/ot-slate-v2
+      layout: main-horizontal
+      panes:
+        - editor:
+          - tmux resize-pane -D 30
+          - tmux resize-pane -Z
+          - nvim
+        - console:
+          - zsh
+  - Legacy:
+      root: ~/Projects/aha/aha-editor
+      layout: main-horizontal
+      panes:
+        - editor:
+          - tmux resize-pane -D 30
+          - tmux resize-pane -Z
+          - nvim
+        - console:
+          - zsh
