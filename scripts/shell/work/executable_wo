@@ -2,16 +2,17 @@
 
 play-file () {
   if [[ $1 == "" ]] then
-    echo "No file to play"
     return
   fi
-
-  /Applications/VLC.app/Contents/MacOS/VLC --play-and-exit --intf dummy $1 > /dev/null 2>&1
+  [ -f $1 ] && /Applications/VLC.app/Contents/MacOS/VLC --play-and-exit --intf dummy $1 > /dev/null 2>&1
 }
 
 get-play-file () {
   DIRECTORY="$HOME/scripts/shell/work/$1"
-  PLAY_FILE=$(ls $DIRECTORY | sort -R | tail -n 1)
+  PLAY_FILE=$(ls "$DIRECTORY" /dev/null | sort -R | tail -n 1)
+  if [[ $? == 0 ]] then
+    return
+  fi
 
   echo "$DIRECTORY/$PLAY_FILE"
 }
