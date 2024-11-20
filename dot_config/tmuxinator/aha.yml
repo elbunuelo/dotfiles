@@ -4,18 +4,19 @@ name: Aha
 root: ~/Projects/aha
 startup_window: 2
 windows:
-  - server:
+  - Server:
       root: ~/Projects/aha/aha-app
       layout: tiled
       panes:
         - server:
-          - overmind s
-        - turbo:
-          - pnpm turbo:watch
+          - rm .overmind.sock && overmind s -f Procfile.mono
         - docker:
           - docker compose up -d
+          - docker compose logs -f
         - logs:
           - tail -f log/development.log
+        - db:
+          - postgres
   - Aha:
     root: ~/Projects/aha/aha-app
     layout: main-horizontal
@@ -35,7 +36,7 @@ windows:
           - tmux resize-pane -Z
           - nvim
         - console:
-          - overmind s
+          - rm .overmind.sock && overmind s -f Procfile.mono
   - Ot-Slate:
       root: ~/Projects/aha/aha-app/packages/ot-slate-v2
       layout: main-horizontal
