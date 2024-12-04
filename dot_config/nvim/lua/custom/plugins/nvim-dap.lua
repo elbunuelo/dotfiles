@@ -138,7 +138,7 @@ return {
       debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
       adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
     })
-    for _, language in ipairs({ "typescript", "javascript", "svelte", "vue" }) do
+    for _, language in ipairs({ "typescript", "javascript", "svelte", "vue", "typescriptreact" }) do
       require("dap").configurations[language] = {
         -- attach to a node process that has been started with
         -- `--inspect` for longrunning tasks or `--inspect-brk` for short tasks
@@ -174,6 +174,28 @@ return {
           protocol = "inspector",
           port = 9222,
           webRoot = "${workspaceFolder}/src",
+          cwd = "${workspaceFolder}",
+        },
+        {
+          type = "pwa-chrome",
+          name = "Debug Editor",
+          request = "launch",
+          url = "http://localhost:8000",
+          sourceMaps = true,
+          protocol = "inspector",
+          port = 9222,
+          webRoot = "${workspaceFolder}/examples/demo",
+          cwd = "${workspaceFolder}",
+        },
+        {
+          type = "pwa-chrome",
+          name = "Debug Aha",
+          request = "launch",
+          url = "https://reallybigaha.ahalocalhost.com:3000",
+          sourceMaps = true,
+          protocol = "inspector",
+          port = 9222,
+          webRoot = "${workspaceFolder}",
           cwd = "${workspaceFolder}",
         },
       }

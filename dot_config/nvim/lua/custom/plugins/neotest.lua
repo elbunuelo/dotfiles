@@ -20,15 +20,29 @@ return {
     { "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Output" },
     { "<leader>tO", function() require("neotest").output_panel.toggle() end,                            desc = "Toggle Output Panel" },
     { "<leader>tS", function() require("neotest").run.stop() end,                                       desc = "Stop" },
-    { "<leader>td", function() require("neotest").run.run({ strategy = 'dap' }) end,                    desc = "Debug tests" }
+    { "<leader>td", function() require("neotest").run.run({ strategy = 'dap' }) end,                    desc = "Debug tests" },
+    { "<leader>tw", function() require('neotest').run.run({ jestCommand = 'pnpm jest --watch ' }) end,  desc = "Watch tests" },
   },
   config = function()
     require('neotest').setup({
+      log_level = vim.log.levels.TRACE,
+      discovery = { enabled = false },
       adapters = {
         require('neotest-jest')({
+          log_level = vim.log.levels.TRACE,
+          jest_test_discovery = true,
+          jestCommand = "pnpm jest --watch",
+          jestConfigFile = function(file)
+            if string.find(file, "/packages/") then
+              return string.match(file, "(.-/[^/]+/)src") .. "jest.config.ts"
+            end
 
-          jestCommand = require('neotest-jest.jest-util').getJestCommand(vim.fn.expand '%:p:h') .. ' --watch',
-          cwd = function(path)
+            return vim.fn.getcwd() .. "/jest.config.ts"
+          end,
+          cwd = function(file)
+            if string.find(file, "/packages/") then
+              return string.match(file, "(.-/[^/]+/)src")
+            end
             return vim.fn.getcwd()
           end,
         }),
