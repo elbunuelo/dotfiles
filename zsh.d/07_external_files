@@ -1,0 +1,13 @@
+EXTERNAL_FILES=( \
+  .npm_token \
+  .zendesk_indicator \
+  .sentry \
+  .llm-sidekick \
+  .aha.nvim \
+  )
+
+for FILE in $EXTERNAL_FILES
+do
+  FILE_PATH="$HOME/$FILE"
+  [ -f "$FILE_PATH" ] && source "$FILE_PATH"
+done
